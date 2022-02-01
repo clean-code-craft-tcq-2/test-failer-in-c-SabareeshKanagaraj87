@@ -16,10 +16,10 @@ int TriggerNetworkAlert(float celcius) {
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    if (celsius <= 400) 
+    if (celcius <= 400) 
         return 200;
     else
-        return 500
+        return 500;
 }
 
 void alertInCelcius(float farenheit, int *Fptr_TriggerNetworkAlert) {
