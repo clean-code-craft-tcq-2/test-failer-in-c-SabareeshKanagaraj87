@@ -25,9 +25,9 @@ int printColorMap() {
 
 int main() {
     int result = printColorMap();
-    char ResultString = GetPrintString(1,"White","Blue");
     assert(result == 25);
-    assert(ResultString == "1|White|Blue");
+    assert(strcmp(GetPrintString(1, "White", "Blue"), "1|White|Blue\n") == 0);
+	
 	
 	
     printf("All is well (maybe!)\n");
