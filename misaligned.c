@@ -6,7 +6,7 @@ const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 static char PrintString[100] = "";
 
 
-static char* GetPrintString(int PairNumber, char * majorColor, char * minorColor)
+static char* GetPrintString(int PairNumber, const char * majorColor, const char * minorColor)
 {
     sprintf(PrintString, "%d|%s|%s|\n", PairNumber, majorColor, minorColor);
     return PrintString;
