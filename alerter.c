@@ -3,7 +3,7 @@
 
 int alertFailureCount = 0;
 
-int networkAlertStub(float celcius) {
+int TriggerNetworkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
     // Return 200 for ok
     // Return 500 for not-ok
@@ -11,9 +11,20 @@ int networkAlertStub(float celcius) {
     return 200;
 }
 
-void alertInCelcius(float farenheit) {
+int TriggerNetworkAlert(float celcius) {
+    printf("ALERT: Temperature is %.1f celcius.\n", celcius);
+    // Return 200 for ok
+    // Return 500 for not-ok
+    // stub always succeeds and returns 200
+    if (celsius <= 400) 
+        return 200;
+    else
+        return 500
+}
+
+void alertInCelcius(float farenheit, int *Fptr_TriggerNetworkAlert) {
     float celcius = (farenheit - 32) * 5 / 9;
-    int returnCode = networkAlertStub(celcius);
+    int returnCode = Fptr_TriggerNetworkAlert(celcius);
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
         // let us keep a count of failures to report
@@ -24,8 +35,8 @@ void alertInCelcius(float farenheit) {
 }
 
 int main() {
-    alertInCelcius(400.5);
-    alertInCelcius(303.6);
+    alertInCelcius(400.5, &TriggerNetworkAlert);
+    alertInCelcius(303.6, &TriggerNetworkAlertStub);
     printf("%d alerts failed.\n", alertFailureCount);
     assert(alertFailureCount == 2);
     printf("All is well (maybe!)\n");
