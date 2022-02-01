@@ -22,7 +22,7 @@ int TriggerNetworkAlert(float celcius) {
         return 500;
 }
 
-void alertInCelcius(float farenheit, int *Fptr_TriggerNetworkAlert) {
+void alertInCelcius(float farenheit, int (*Fptr_TriggerNetworkAlert)) {
     float celcius = (farenheit - 32) * 5 / 9;
     int returnCode = Fptr_TriggerNetworkAlert(celcius);
     if (returnCode != 200) {
