@@ -39,6 +39,8 @@ int main() {
     alertInCelcius(303.6, TriggerNetworkAlertStub);
     printf("%d alerts failed.\n", alertFailureCount);
     assert(alertFailureCount == 1);
+    assert(TriggerNetworkAlert(300.5) == 200);
+    assert(TriggerNetworkAlert(400.5) == 500);
     printf("All is well (maybe!)\n");
     return 0;
 }
