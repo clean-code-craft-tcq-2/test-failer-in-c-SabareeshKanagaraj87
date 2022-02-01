@@ -36,9 +36,11 @@ void alertInCelcius(float farenheit, int (*Fptr_TriggerNetworkAlert)(float)) {
 
 int main() {
     alertInCelcius(400.5, TriggerNetworkAlert);
+    alertInCelcius(303.6, TriggerNetworkAlert);
+    alertInCelcius(400.5, TriggerNetworkAlertStub);
     alertInCelcius(303.6, TriggerNetworkAlertStub);
     printf("%d alerts failed.\n", alertFailureCount);
-    assert(alertFailureCount == 1);
+    assert(alertFailureCount == 2);
     assert(TriggerNetworkAlert(300.5) == 200);
     assert(TriggerNetworkAlert(400.5) == 500);
     printf("All is well (maybe!)\n");
