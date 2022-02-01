@@ -6,7 +6,7 @@ const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 static char PrintString[100] = "";
 
 
-static char* GetPrintString(int PairNumber, char majorColor, char minorColor)
+static char* GetPrintString(int PairNumber, char * majorColor, char * minorColor)
 {
     sprintf(PrintString, "%d|%s|%s|\n", PairNumber, majorColor, minorColor);
     return PrintString;
@@ -27,7 +27,7 @@ int main() {
     int result = printColorMap();
     char ResultString = GetPrintString(1,"White","Blue");
     assert(result == 25);
-	assert(ResultString == "1|White|Blue")
+    assert(ResultString == "1|White|Blue");
 	
 	
     printf("All is well (maybe!)\n");
